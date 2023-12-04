@@ -1,0 +1,37 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.header-container {
+  border: 1px solid;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  width: 50px;
+  /* float: left; */
+}
+
+.header-right > ul {
+  display: flex;
+  list-style: none;
+}
+
+.header-right > ul > li > a {
+  margin: 10px;
+  padding: 10px;
+}
+
