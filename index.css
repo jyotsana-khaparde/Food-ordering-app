@@ -21,7 +21,6 @@
 
 .logo {
   width: 50px;
-  width: 50px;
   /* float: left; */
 }
 
@@ -33,5 +32,26 @@
 .header-right > ul > li > a {
   margin: 10px;
   padding: 10px;
+}
+
+.res-card {
+  border: 1px solid;
+  width: 200px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.res-card:hover {
+  cursor: pointer;
+  box-shadow: 5px 5px 15px 0px;
+}
+
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.res-card-img > img {
+width: 100%;
 }
 
