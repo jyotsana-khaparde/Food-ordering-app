@@ -8,11 +8,13 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import RestaurantsInfo from "./components/RestaurantsInfo";
 
 const AppLayout = () => {
   return (
     <>
       <Header />
+      {/* Outlet :- Renders the child route's element, if there is one. It is kind of tunnel and all the child routes come in this place and the Outlet will be replaced by the component of that child route*/}
       <Outlet />
       <Footer />
     </>
@@ -35,6 +37,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactUs />,
+      },
+      {
+        path: "/restaurants/:resId",
+        element: <RestaurantsInfo />,
       },
     ],
     errorElement: <Error/>,

@@ -1,4 +1,5 @@
-import {LOGO} from "../utils/constant"
+import { LOGO } from "../utils/constant";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -12,19 +13,19 @@ const Header = () => {
       <div className="header-right">
         <ul>
           <li>
-            <a>Sortings</a>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About Us</Link>
+          </li>
+          <li>
+            <a href="/contact">Contact Us</a>
           </li>
           <li>
             <a>Login</a>
           </li>
           <li>
             <a>Sign up</a>
-          </li>
-          <li>
-            <a>Add to cart</a>
-          </li>
-          <li>
-            <a>Contact Us</a>
           </li>
         </ul>
       </div>
