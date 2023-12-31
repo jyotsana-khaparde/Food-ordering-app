@@ -2,21 +2,13 @@ import { useEffect, useState } from "react";
 
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
+import useRestaurantInfo from "../utils/customHooks/useRestaurantInfo";
 
 const RestaurantsInfo = () => {
-  const [resInfo, setResInfo] = useState(null);
   const { resId } = useParams();
+  // Custom hook to get restaurant information.
+  const resInfo = useRestaurantInfo(resId);
 
-  useEffect(() => {
-    fetchRestaurantInfo();
-  }, []);
-  const fetchRestaurantInfo = async () => {
-    const data = await fetch(
-      `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.0759837&lng=72.8776559&restaurantId=${resId}`
-    );
-    const data2 = await data.json();
-    setResInfo(data2);
-  };
   if (!resInfo) {
     return <Shimmer />;
   }
