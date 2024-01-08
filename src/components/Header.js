@@ -6,31 +6,31 @@ const Header = () => {
   const onlineStatus = useOnlineState();
 
   return (
-    <div className="header-container">
-      <div className="header-left">
-        <img className="logo" src={LOGO} />
+    <div className="flex justify-between border-solid bg-gray-200 border-2 border-gray-400">
+      <div className="w-14">
+        <img className="" src={LOGO} />
       </div>
-      <div className="header-right">
-        <ul>
-          <li>
+      <div>
+        <ul className="flex">
+          <li className="p-2 m-1">
             <h4>{`Online Status: ${onlineStatus ? "✅" : "🔴"}`}</h4>
           </li>
-          <li>
+          <li className="p-2 m-1 hover:bg-slate-400">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="p-2 m-1 hover:bg-slate-400">
             <Link to="/about">About Us</Link>
           </li>
-          <li>
+          <li className="p-2 m-1 hover:bg-slate-400">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li>
+          <li className="p-2 m-1 hover:bg-slate-400">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li>
+          <li className="p-2 m-1 hover:bg-slate-400">
             <a>Login</a>
           </li>
-          <li>
+          <li className="p-2 m-1 hover:bg-slate-400">
             <a>Sign up</a>
           </li>
         </ul>
