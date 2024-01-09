@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 import ResturantCard from "./ResturantCard";
 import Shimmer from "./Shimmer";
 import useOnlineState from "../utils/customHooks/useOnlineStatus";
+import withPromotedLabel from "../components/HOC/withPromotedLabel";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
   const [filterRestaurants, setFilterRestaurants] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const onlineStatus = useOnlineState();
+  const EnhancedResturantCard = withPromotedLabel(ResturantCard);
   useEffect(() => {
     fetchData();
   }, []);
@@ -75,7 +77,11 @@ const Body = () => {
             key={Restaurant.info.id}
             to={`/restaurants/${Restaurant.info.id}`}
           >
-            <ResturantCard Restaurant={Restaurant} />
+            {Restaurant.info.avgRating >= 4.5 ? (
+              <EnhancedResturantCard Restaurant={Restaurant} />
+            ) : (
+              <ResturantCard Restaurant={Restaurant} />
+            )}
           </Link>
         ))}
       </div>
