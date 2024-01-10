@@ -1,3 +1,5 @@
+import { CDN_IMAGE } from "../utils/constant";
+
 const ResturantCard = ({ Restaurant }) => {
   return (
     <div className="bg-slate-200 p-3 m-3 rounded-lg hover:bg-slate-400">
@@ -5,7 +7,7 @@ const ResturantCard = ({ Restaurant }) => {
         <img
           className="w-52 rounded-lg"
           // w-16 md:w-32 lg:w-48 ||| w-52 rounded-lg
-          src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${Restaurant.info.cloudinaryImageId}`}
+          src={`${CDN_IMAGE}${Restaurant.info.cloudinaryImageId}`}
           alt=""
         />
       </div>
