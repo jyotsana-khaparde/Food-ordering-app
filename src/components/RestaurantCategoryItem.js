@@ -2,7 +2,7 @@ import { CDN_IMAGE } from "../utils/constant";
 
 const RestaurantCategoryItem = ({ data }) => {
   return (
-    <div className="bg-slate-100 p-2 m-2 flex justify-between">
+    <div className="border-t-2 p-4 m-2 flex justify-between">
       <div className="w-7/12 text-left">
         <h2 className="font-medium">{data.card.info.name}</h2>
         <h6 className="text-xs">{data.card.info.description}</h6>
