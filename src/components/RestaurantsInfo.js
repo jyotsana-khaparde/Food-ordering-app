@@ -2,9 +2,11 @@ import RestaurantCategory from "./RestaurantCategory";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantInfo from "../utils/customHooks/useRestaurantInfo";
+import { useState } from "react";
 
 const RestaurantsInfo = () => {
   const { resId } = useParams();
+  const [expandCategory, setExpandCategory] = useState("");
   // Custom hook to get restaurant information.
   const resInfo = useRestaurantInfo(resId);
   if (!resInfo) {
@@ -28,9 +30,14 @@ const RestaurantsInfo = () => {
       <h5 className="text-sm">{`avgRating - ${avgRating}`}</h5>
       <div className="mt-4">
         {itemCategories.map((itemCategory) => (
+          // controlled component
           <RestaurantCategory
             key={itemCategory.card.card.title}
             data={itemCategory.card.card}
+            handleExpandCategory={() => {
+              setExpandCategory(itemCategory.card.card.title);
+            }}
+            isCategoryExpanded={itemCategory.card.card.title === expandCategory}
           />
         ))}
       </div>
