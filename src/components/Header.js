@@ -1,10 +1,12 @@
 import { LOGO } from "../utils/constant";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/context/UserContext";
+import { useContext } from "react";
 import useOnlineState from "../utils/customHooks/useOnlineStatus";
 
 const Header = () => {
   const onlineStatus = useOnlineState();
-
+  const { loggedInUser } = useContext(UserContext);
   return (
     <div className="flex justify-between border-solid bg-gray-200 border-2 border-gray-400">
       <div className="w-14">
@@ -32,6 +34,9 @@ const Header = () => {
           </li>
           <li className="p-2 m-1 hover:bg-slate-400">
             <a>Sign up</a>
+          </li>
+          <li className="p-2 m-1 hover:bg-slate-400">
+            <a>Loggedin User: {loggedInUser}</a>
           </li>
         </ul>
       </div>

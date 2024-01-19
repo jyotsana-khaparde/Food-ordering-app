@@ -1,14 +1,17 @@
+import { useContext, useState } from "react";
+
 import RestaurantCategory from "./RestaurantCategory";
 import Shimmer from "./Shimmer";
+import UserContext from "../utils/context/UserContext";
 import { useParams } from "react-router-dom";
 import useRestaurantInfo from "../utils/customHooks/useRestaurantInfo";
-import { useState } from "react";
 
 const RestaurantsInfo = () => {
   const { resId } = useParams();
   const [expandCategory, setExpandCategory] = useState("");
   // Custom hook to get restaurant information.
   const resInfo = useRestaurantInfo(resId);
+  const { loggedInUser } = useContext(UserContext);
   if (!resInfo) {
     return <Shimmer />;
   }
@@ -25,6 +28,7 @@ const RestaurantsInfo = () => {
       <h1 className="font-bold text-lg m-2">{name}</h1>
       <h2 className="text-m">{cuisines.join(", ")}</h2>
       <h3 className="text-sm mb-2">{`${areaName} - ${city}`}</h3>
+      <h1>Loggedin User: {loggedInUser}</h1>
       <div className="border-b-2 border-dotted"></div>
       <h4 className="font-bold mt-2">{costForTwoMessage} </h4>
       <h5 className="text-sm">{`avgRating - ${avgRating}`}</h5>
