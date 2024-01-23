@@ -1,6 +1,14 @@
 import { CDN_IMAGE } from "../utils/constant";
+import { addCart } from "../utils/redux/cartSlice";
+import { useDispatch } from "react-redux";
 
 const RestaurantCategoryItem = ({ data }) => {
+  const dispatch = useDispatch();
+
+  const handleAddCart = (info) => {
+    // whatever data we pass in addCart it will be send in `action.payload` by default.
+    dispatch(addCart(info));
+  };
   return (
     <div className="border-t-2 p-4 m-2 flex justify-between">
       <div className="w-7/12 text-left">
@@ -14,6 +22,12 @@ const RestaurantCategoryItem = ({ data }) => {
           src={`${CDN_IMAGE}${data.card.info.imageId}`}
           alt=""
         />
+        <button
+          className="bg-black text-white px-3 rounded-md"
+          onClick={() => handleAddCart(data.card.info)}
+        >
+          Add
+        </button>
       </div>
     </div>
   );
